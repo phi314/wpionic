@@ -19,24 +19,4 @@
   
 </ion-menu>
 
-<ion-header>
-  <ion-navbar color="primary">
-      <button ion-button [menuToggle]="mainmenu">
-          <ion-icon name="menu"></ion-icon>
-        </button>
-    <ion-title *ngIf="!categoryTitle">Recent posts</ion-title>
-    <ion-title *ngIf="categoryTitle">{{categoryTitle}} posts</ion-title>
-    <ion-buttons *ngIf="loggedUser" end>
-      <button ion-button icon-only (click)="logOut()">
-        <ion-icon class="toolbar-icon" name="log-out"></ion-icon>
-      </button>
-    </ion-buttons>
-    <ion-buttons *ngIf="!loggedUser" end>
-      <button ion-button icon-only (click)="goToLogin()">
-        <ion-icon class="toolbar-icon" name="log-in"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-navbar>
-</ion-header>
-
 <ion-nav #content [root]="rootPage"></ion-nav>
