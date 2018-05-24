@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
+import { MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
@@ -16,7 +17,8 @@ export class MyApp {
     platform: Platform,
     statusBar: StatusBar,
     splashScreen: SplashScreen,
-    authenticationService: AuthenticationService
+    authenticationService: AuthenticationService,
+    public menuCtrl: MenuController
   ) {
     platform.ready().then(() => {
       authenticationService.getUser()

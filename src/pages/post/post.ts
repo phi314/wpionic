@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavParams, NavController, LoadingController, AlertController } from 'ionic-angular';
+import { NavParams, NavController, LoadingController, AlertController, ToastController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { HomePage } from '../home/home';
 import { WordpressService } from '../../services/wordpress.service';
@@ -25,6 +25,7 @@ export class PostPage {
     public navCtrl: NavController,
     public loadingCtrl: LoadingController,
     public alertCtrl: AlertController,
+    public toastCtrl: ToastController,
     public wordpressService: WordpressService,
     public authenticationService: AuthenticationService
   ) {
@@ -109,7 +110,7 @@ export class PostPage {
           }
         },
         {
-          text: 'Accept',
+          text: 'Send',
           handler: data => {
             let loading = this.loadingCtrl.create();
             loading.present();
@@ -119,6 +120,17 @@ export class PostPage {
                 console.log("ok", data);
                 this.getComments();
                 loading.dismiss();
+
+                let toast = this.toastCtrl.create({
+                  message: 'Comment has been sent',
+                  duration: 1200,
+                });
+              
+                toast.onDidDismiss(() => {
+                  console.log('Dismissed toast');
+                });
+              
+                toast.present();
               },
               (err) => {
                 console.log("err", err);

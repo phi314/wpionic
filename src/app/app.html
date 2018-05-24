@@ -1,1 +1,22 @@
+<ion-menu [content]="content" id="mainmenu">
+
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Mahiwall</ion-title>
+      </ion-toolbar>
+    </ion-header>
+  
+    <ion-content>
+      <ion-list>
+        <button ion-item menuClose="mainmenu" detail-none>
+          Close Menu 1
+        </button>
+      </ion-list>
+    </ion-content>
+  
+  </ion-menu>
+
+  <ion-nav #content></ion-nav>  
+  
+
 <ion-nav [root]="rootPage"></ion-nav>

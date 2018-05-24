@@ -1,5 +1,8 @@
 <ion-header>
   <ion-navbar color="primary">
+      <button ion-button [menuToggle]="mainmenu">
+          <ion-icon name="menu"></ion-icon>
+        </button>
     <ion-title *ngIf="!categoryTitle">Recent posts</ion-title>
     <ion-title *ngIf="categoryTitle">{{categoryTitle}} posts</ion-title>
     <ion-buttons *ngIf="loggedUser" end>
