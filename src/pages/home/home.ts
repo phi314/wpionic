@@ -95,15 +95,5 @@ export class HomePage {
     })
   }
 
-  logOut(){
-    this.authenticationService.logOut()
-    .then(
-      res => this.navCtrl.push(LoginPage),
-      err => console.log('Error in log out')
-    )
-  }
-
-  goToLogin(){
-    this.navCtrl.push(LoginPage);
-  }
+ 
 }
