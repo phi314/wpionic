@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { PostPage } from '../post/post';
+import { LoginPage } from '../login/login';
 import { NavController } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import * as Config from '../../config';
@@ -45,7 +46,7 @@ export class RegisterPage {
         this.authenticationService.doRegister(user_data, res.json().token)
         .subscribe(
           result => {
-            console.log(result);
+            this.navCtrl.push(LoginPage);
           },
           error => {
             console.log(error);

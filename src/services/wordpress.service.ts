@@ -60,4 +60,14 @@ export class WordpressService {
     },{ headers: header })
     .map(res => res.json());
   }
+
+  /**
+   * Place
+   */
+  getPlaces(){
+    return this.http.get(
+      Config.WORDPRESS_REST_API_URL
+      + 'place?page=1')
+    .map(res => res.json());
+  }
 }

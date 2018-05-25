@@ -1,22 +1,24 @@
+<!-- Main Menu -->
 <ion-menu [content]="content" id="mainmenu">
-
     <ion-header>
-      <ion-toolbar>
-        <ion-title>Mahiwall</ion-title>
-      </ion-toolbar>
+        <ion-toolbar>
+            <ion-title>Mahiwall</ion-title>
+        </ion-toolbar>
     </ion-header>
-  
     <ion-content>
-      <ion-list>
-        <ion-item>
+        <ion-list>
+            <button ion-item (click)="openPage(homePage)">
+                Home
+            </button>
+            <button ion-item (click)="openPage(placePage)">
+                Places
+            </button>
             <button ion-item menuClose="mainmenu" detail-none>
                 Close Menu 1
-              </button>
-        </ion-item>
-        
-      </ion-list>
+            </button>
+        </ion-list>
     </ion-content>
-  
 </ion-menu>
 
+<!-- Content -->
 <ion-nav #content [root]="rootPage"></ion-nav>

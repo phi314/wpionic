@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button [menuToggle]="activeMenu">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Places</ion-title>
+    <ion-title *ngIf="categoryTitle">{{categoryTitle}} places</ion-title>
+    <ion-buttons *ngIf="loggedUser" end>
+      <button ion-button icon-only (click)="logOut()">
+        <ion-icon class="toolbar-icon" name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons *ngIf="!loggedUser" end>
+      <button ion-button icon-only (click)="goToLogin()">
+        <ion-icon class="toolbar-icon" name="log-in"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page place">
+  <ion-card *ngFor="let place of places">
+    <img src="https://picsum.photos/300/200">
+    <ion-fab right top>
+      <button ion-fab>
+        <ion-icon name="pin"></ion-icon>
+      </button>
+    </ion-fab>
+    <ion-item *ngFor="let placeCategory of place.place_categories">
+      <ion-icon name="football" item-start large></ion-icon>
+      <h2>{{placeCategory.name}}</h2>
+    </ion-item>
+    <ion-item>
+      <span item-left>18 min</span>
+      <span item-left>(2.6 mi)</span>
+      <button ion-button icon-left clear item-end>
+        <ion-icon name="navigate"></ion-icon>
+        Start
+      </button>
+    </ion-item>
+  </ion-card>
+</ion-content>
